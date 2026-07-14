@@ -2,69 +2,151 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+/*
+ * Editorial Gallery design tokens.
+ * The canvas stays quiet so the work is the only thing with colour on the page.
+ * A single accent (vermillion) is used for emphasis — never as decoration.
+ */
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 3, 7, 18;
-    --background-end-rgb: 3, 7, 18;
+    --canvas: 250 249 246; /* #FAF9F6 bone */
+    --surface: 255 255 255;
+    --ink: 17 17 17; /* #111111 */
+    --ink-muted: 107 107 107; /* #6B6B6B — 4.9:1 on canvas, passes AA */
+    --rule: 229 226 219;
+    --accent: 200 57 28; /* #C8391C — 4.7:1 on canvas, passes AA */
+    --accent-ink: 255 255 255;
+
+    color-scheme: light;
+  }
+
+  .dark {
+    --canvas: 14 14 14;
+    --surface: 22 22 22;
+    --ink: 245 243 239;
+    --ink-muted: 160 160 160; /* 7.0:1 on canvas */
+    --rule: 42 42 42;
+    --accent: 255 107 74; /* lifted for legibility on dark */
+    --accent-ink: 17 17 17;
+
+    color-scheme: dark;
+  }
+
+  * {
+    @apply border-rule;
+  }
+
+  html {
+    @apply scroll-smooth;
+    /* Offset anchor targets so the fixed header never covers a section heading. */
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    @apply bg-canvas font-sans text-body text-ink antialiased;
+    font-feature-settings: 'kern', 'liga', 'calt';
+  }
+
+  /* Tabular figures keep years and indices from shifting as they animate in. */
+  .font-mono {
+    font-variant-numeric: tabular-nums;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-canvas;
+  }
+
+  /*
+   * Windows High Contrast / forced-colors mode does not render box-shadow — and
+   * Tailwind's `ring-*` IS a box-shadow. Combined with the `outline-none` above,
+   * a forced-colors user would get no visible focus indicator anywhere on the
+   * site. A real outline is the only thing that survives, so restore one.
+   */
+  @media (forced-colors: active) {
+    :focus-visible {
+      outline: 2px solid;
+      outline-offset: 2px;
+    }
+  }
+
+  ::selection {
+    @apply bg-accent text-accent-ink;
   }
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-  font-family: 'Inter', sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer components {
+  /* Small uppercase mono label — the editorial workhorse. */
+  .label {
+    @apply font-mono text-label uppercase text-ink-muted;
   }
 
-  .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 via-accent-500 to-primary-600;
+  /* Hairline rule used to separate sections without adding a box. */
+  .rule-t {
+    @apply border-t border-rule;
   }
 
-  .card-hover {
-    @apply transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/20 hover:-translate-y-2;
+  /* Consistent page gutters. Replaces the old per-element px-2/xs:px-4/sm:px-6 soup. */
+  .shell {
+    @apply mx-auto w-full max-w-[1440px] px-6 sm:px-8 lg:px-12;
+  }
+
+  /* Underline that draws in from the left on hover — restrained link affordance. */
+  .link-underline {
+    @apply relative inline-block;
+  }
+  .link-underline::after {
+    @apply absolute bottom-0 left-0 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-300 ease-editorial content-[''];
+  }
+  .link-underline:hover::after,
+  .link-underline:focus-visible::after {
+    @apply origin-left scale-x-100;
   }
 }
 
-/* Custom scrollbar */
+/* Honour the OS setting. Every animation in the app is additionally gated in JS,
+   but this catches CSS transitions and any third-party motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*
+ * Safety net for the scroll-reveal animations.
+ *
+ * Framer Motion writes `opacity: 0` as an INLINE style, and it is present in the
+ * server-rendered HTML. If JavaScript never runs — blocked, failed hydration, a
+ * crawler that doesn't execute it — or if the IntersectionObserver never fires,
+ * that opacity is never restored and the entire portfolio renders blank.
+ *
+ * For a site whose only job is being looked at, that is a catastrophic failure
+ * mode to accept for the sake of a fade. Printing has the same problem: the
+ * browser prints the page as-is, invisible elements and all.
+ *
+ * Inline styles outrank CSS classes, so `!important` is the only lever here.
+ */
+@media print {
+  [style*='opacity'],
+  [style*='transform'] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
-
 ::-webkit-scrollbar-track {
-  background: rgb(var(--background-start-rgb));
+  background: rgb(var(--canvas));
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #8b5cf6;
-  border-radius: 4px;
+  background: rgb(var(--rule));
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #7c3aed;
+  background: rgb(var(--ink-muted));
 }

@@ -1,0 +1,308 @@
+- generic [ref=f17e1]:
+  - link "Skip to content" [ref=f17e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f17e3]:
+    - generic [ref=f17e4]:
+      - link "Sowmiya Ravichandran, back to top" [ref=f17e5] [cursor=pointer]:
+        - /url: "#home"
+        - text: Sowmiya.Ravichandran
+      - generic [ref=f17e6]:
+        - button "Switch to light theme" [ref=f17e7] [cursor=pointer]
+        - button "Open menu" [active] [ref=f17e10] [cursor=pointer]
+  - main [ref=f17e12]:
+    - generic [ref=f17e13]:
+      - generic [ref=f17e14]:
+        - generic [ref=f17e15]:
+          - paragraph [ref=f17e16]: Sowmiya Ravichandran — Portfolio
+          - heading "Graphic & Interface Designer" [level=1] [ref=f17e17]:
+            - generic [ref=f17e18]: Graphic
+            - generic [ref=f17e20]: "& Interface"
+            - generic [ref=f17e22]: Designer
+        - figure "Graphic & Interface Designer" [ref=f17e24]:
+          - img "Sowmiya Ravichandran, photographed in black and white beside a window, one hand resting against the light." [ref=f17e26]
+      - generic [ref=f17e28]:
+        - generic [ref=f17e29]:
+          - paragraph [ref=f17e30]: Available for freelance & full-time · Tirupur, Tamil Nadu
+          - paragraph [ref=f17e32]: I design retail packaging, print campaigns and brand identities for businesses across Tiruppur and Coimbatore — with a background in textile and embroidery design that taught me to care about craft at millimetre scale.
+        - generic [ref=f17e33]:
+          - link "View the work" [ref=f17e34] [cursor=pointer]:
+            - /url: "#work"
+          - link "Get in touch" [ref=f17e37] [cursor=pointer]:
+            - /url: mailto:sowmiyaravi.design@gmail.com
+    - generic [ref=f17e41]:
+      - generic [ref=f17e42]:
+        - generic [ref=f17e43]:
+          - generic [ref=f17e44]: "01"
+          - heading "Selected Work" [level=2] [ref=f17e45]
+        - paragraph [ref=f17e46]: Packaging, campaigns, print and identity — made for manufacturers, schools, brokers and retail brands around Tiruppur, Namakkal and Salem. Select any piece to see it full size.
+      - article [ref=f17e48]:
+        - generic [ref=f17e50]:
+          - 'img "Hummingbird churidar leggings packaging sleeve: a magenta colourway with the gradient hummingbird mark, a model in pink leggings, a vertical CHURIDAR LEGGINGS spine, and a spec panel listing 95% cotton, 5% elastane, four-way stretch and a size grid." [ref=f17e51]'
+          - generic [ref=f17e52]: Packaging
+        - generic [ref=f17e57]:
+          - generic [ref=f17e58]:
+            - heading [level=3] [ref=f17e59]:
+              - button "Leggings Packaging System" [ref=f17e60] [cursor=pointer]
+            - generic [ref=f17e61]: "2025"
+          - paragraph [ref=f17e62]: One die-line, three SKUs, two brands.
+          - generic [ref=f17e63]:
+            - generic [ref=f17e64]: Sri Vengateswara Garments · German Cliff
+            - generic [ref=f17e65]: View
+      - generic [ref=f17e69]:
+        - article [ref=f17e71]:
+          - generic [ref=f17e73]:
+            - 'img "SRR Health Mix carton: a blue pack with a yellow banner, a fan of 36 grains, nuts, cereals and pulses arranged as a flower, and a 100% natural ingredients seal." [ref=f17e74]'
+            - generic [ref=f17e75]: Packaging
+          - generic [ref=f17e80]:
+            - generic [ref=f17e81]:
+              - heading [level=3] [ref=f17e82]:
+                - button "SRR Health Mix & Red Banana" [ref=f17e83] [cursor=pointer]
+              - generic [ref=f17e84]: "2025"
+            - paragraph [ref=f17e85]: FSSAI-compliant food packaging for a natural foods range.
+            - generic [ref=f17e86]:
+              - generic [ref=f17e87]: SRR — Sree Ram Traders
+              - generic [ref=f17e88]: View
+        - article [ref=f17e93]:
+          - generic [ref=f17e95]:
+            - 'img "Sri Vengateswara Garments business card: a green and silver layout with a leaf mark, a location QR code, GST number and contact details." [ref=f17e96]'
+            - generic [ref=f17e97]: Identity
+          - generic [ref=f17e102]:
+            - generic [ref=f17e103]:
+              - heading [level=3] [ref=f17e104]:
+                - button "Sri Vengateswara Garments" [ref=f17e105] [cursor=pointer]
+              - generic [ref=f17e106]: "2025"
+            - paragraph [ref=f17e107]: A garment-trade identity and card, carrying a scannable location.
+            - generic [ref=f17e108]:
+              - generic [ref=f17e109]: Sri Vengateswara Garments
+              - generic [ref=f17e110]: View
+        - article [ref=f17e115]:
+          - generic [ref=f17e117]:
+            - 'img "Humming Bird business card: a violet-to-cyan gradient hummingbird mark beside the wordmark, over a large outlined HUMMING BIRD lettering, with a purple contact band." [ref=f17e118]'
+            - generic [ref=f17e119]: Identity
+          - generic [ref=f17e124]:
+            - generic [ref=f17e125]:
+              - heading [level=3] [ref=f17e126]:
+                - button "Humming Bird" [ref=f17e127] [cursor=pointer]
+              - generic [ref=f17e128]: "2025"
+            - paragraph [ref=f17e129]: A gradient bird mark set against its own oversized wordmark.
+            - generic [ref=f17e130]:
+              - generic [ref=f17e131]: Humming Bird
+              - generic [ref=f17e132]: View
+        - article [ref=f17e137]:
+          - generic [ref=f17e139]:
+            - 'img "Majestic Public School admissions flyer: children stretching in a classroom above a maroon and white layout reading Admissions Open 2026–2027, Pre KG to Grade 5." [ref=f17e140]'
+            - generic [ref=f17e141]: Print
+          - generic [ref=f17e146]:
+            - generic [ref=f17e147]:
+              - heading [level=3] [ref=f17e148]:
+                - button "Admissions Open" [ref=f17e149] [cursor=pointer]
+              - generic [ref=f17e150]: "2025"
+            - paragraph [ref=f17e151]: An admissions campaign flyer built to be read across a room.
+            - generic [ref=f17e152]:
+              - generic [ref=f17e153]: Majestic Public School, Tirupur
+              - generic [ref=f17e154]: View
+        - article [ref=f17e159]:
+          - generic [ref=f17e161]:
+            - 'img "Loan Nanban social creative: a woman in a green saree holding banknotes beside large NO and YES lettering in Tamil and English, over a background of falling currency, with a service strip for home loan, plot loan, loan against property and top-up funding." [ref=f17e162]'
+            - generic [ref=f17e163]: Campaign
+          - generic [ref=f17e168]:
+            - generic [ref=f17e169]:
+              - heading [level=3] [ref=f17e170]:
+                - button "Loan Nanban" [ref=f17e171] [cursor=pointer]
+              - generic [ref=f17e172]: "2025"
+            - paragraph [ref=f17e173]: A Tamil-language campaign for a loan brokerage.
+            - generic [ref=f17e174]:
+              - generic [ref=f17e175]: Loan Nanban, Namakkal
+              - generic [ref=f17e176]: View
+        - article [ref=f17e181]:
+          - generic [ref=f17e183]:
+            - 'img "Property Nanban creative: a family standing under a house-shaped topiary on a slab of turf, with stacks of coins sprouting saplings, a Tamil headline urging investment in land, and a list of DTCP and RERA approvals." [ref=f17e184]'
+            - generic [ref=f17e185]: Campaign
+          - generic [ref=f17e190]:
+            - generic [ref=f17e191]:
+              - heading [level=3] [ref=f17e192]:
+                - button "Property Nanban" [ref=f17e193] [cursor=pointer]
+              - generic [ref=f17e194]: "2025"
+            - paragraph [ref=f17e195]: Plot-sale creative for a DTCP-approved development.
+            - generic [ref=f17e196]:
+              - generic [ref=f17e197]: Property Nanban, Vazhapadi
+              - generic [ref=f17e198]: View
+        - article [ref=f17e203]:
+          - generic [ref=f17e205]:
+            - 'img "SparkWee social media post: a navy and red diagonal layout reading We Are Digital Marketing Agency, with a photograph of a woman reacting to her phone." [ref=f17e206]'
+            - generic [ref=f17e207]: Digital
+          - generic [ref=f17e212]:
+            - generic [ref=f17e213]:
+              - heading [level=3] [ref=f17e214]:
+                - button "SparkWee" [ref=f17e215] [cursor=pointer]
+              - generic [ref=f17e216]: "2025"
+            - paragraph [ref=f17e217]: Social creative for a digital marketing agency.
+            - generic [ref=f17e218]:
+              - generic [ref=f17e219]: SparkWee
+              - generic [ref=f17e220]: View
+    - generic [ref=f17e225]:
+      - generic [ref=f17e227]:
+        - generic [ref=f17e228]: "02"
+        - heading "About" [level=2] [ref=f17e229]
+      - paragraph [ref=f17e231]: I design for three surfaces that punish mistakes differently — the press, the shelf, and the screen.
+      - generic [ref=f17e233]:
+        - paragraph [ref=f17e234]: I'm Sowmiya, a designer working out of Tirupur, Tamil Nadu, mostly for manufacturers, schools and small retail brands.
+        - paragraph [ref=f17e235]: I started in textile and embroidery design, digitising artwork for machines that stitch it in thread. That work has an unforgiving feedback loop — if the file is wrong, the fabric shows it and the run is wasted. It taught me to resolve a design completely before it leaves my hands.
+        - paragraph [ref=f17e236]: I carried that into print and packaging, where bleed, trapping and separation decide whether a job survives the press, and where a food label has to earn its shelf appeal in whatever space the mandatory marks leave behind. The same discipline shows up in interface work as consistent spacing, honest hierarchy, and components that hold together under real content.
+      - generic [ref=f17e237]:
+        - generic [ref=f17e238]:
+          - term [ref=f17e239]: Design
+          - definition [ref=f17e240]:
+            - generic [ref=f17e241]: Adobe Photoshop
+            - generic [ref=f17e243]:
+              - generic [ref=f17e244]: /
+              - generic [ref=f17e245]: CorelDRAW
+            - generic [ref=f17e246]:
+              - generic [ref=f17e247]: /
+              - generic [ref=f17e248]: Figma
+            - generic [ref=f17e249]:
+              - generic [ref=f17e250]: /
+              - generic [ref=f17e251]: emCAD
+        - generic [ref=f17e252]:
+          - term [ref=f17e253]: Craft
+          - definition [ref=f17e254]:
+            - generic [ref=f17e255]: Brand identity
+            - generic [ref=f17e257]:
+              - generic [ref=f17e258]: /
+              - generic [ref=f17e259]: Print production
+            - generic [ref=f17e260]:
+              - generic [ref=f17e261]: /
+              - generic [ref=f17e262]: Embroidery digitising
+            - generic [ref=f17e263]:
+              - generic [ref=f17e264]: /
+              - generic [ref=f17e265]: Layout & typography
+        - generic [ref=f17e266]:
+          - term [ref=f17e267]: Build
+          - definition [ref=f17e268]:
+            - generic [ref=f17e269]: HTML & CSS
+            - generic [ref=f17e271]:
+              - generic [ref=f17e272]: /
+              - generic [ref=f17e273]: JavaScript
+            - generic [ref=f17e274]:
+              - generic [ref=f17e275]: /
+              - generic [ref=f17e276]: React
+            - generic [ref=f17e277]:
+              - generic [ref=f17e278]: /
+              - generic [ref=f17e279]: Tailwind CSS
+        - generic [ref=f17e280]:
+          - term [ref=f17e281]: Languages
+          - definition [ref=f17e282]:
+            - generic [ref=f17e283]: Tamil — native
+            - generic [ref=f17e285]:
+              - generic [ref=f17e286]: /
+              - generic [ref=f17e287]: English — fluent
+      - figure [ref=f17e289]:
+        - blockquote [ref=f17e290]:
+          - paragraph [ref=f17e291]: Decoration is what you add when the design isn't working. I'd rather fix the design.
+      - list [ref=f17e292]:
+        - listitem [ref=f17e293]:
+          - text: "01"
+          - heading "Packaging" [level=3] [ref=f17e294]
+          - paragraph [ref=f17e295]: Labels and cartons for retail, built around mandatory FSSAI marks and nutrition panels.
+        - listitem [ref=f17e296]:
+          - text: "02"
+          - heading "Print" [level=3] [ref=f17e297]
+          - paragraph [ref=f17e298]: Flyers, invitations and commercial artwork prepared to press specification.
+        - listitem [ref=f17e299]:
+          - text: "03"
+          - heading "Identity" [level=3] [ref=f17e300]
+          - paragraph [ref=f17e301]: Marks, business cards and the collateral a small business actually hands out.
+        - listitem [ref=f17e302]:
+          - text: "04"
+          - heading "Digital" [level=3] [ref=f17e303]
+          - paragraph [ref=f17e304]: Social creative and interface layouts, built on a real grid and reusable components.
+    - generic [ref=f17e306]:
+      - generic [ref=f17e308]:
+        - generic [ref=f17e309]: "03"
+        - heading "Experience" [level=2] [ref=f17e310]
+      - list [ref=f17e311]:
+        - listitem [ref=f17e312]:
+          - paragraph [ref=f17e313]: "01"
+          - generic [ref=f17e314]:
+            - heading "Digital Embroidery Designer" [level=3] [ref=f17e315]
+            - paragraph [ref=f17e316]: Juleee Embrotech Pvt Ltd (SS Creation)
+            - list [ref=f17e317]:
+              - listitem [ref=f17e318]:
+                - generic [ref=f17e319]: —
+                - text: Digitised embroidery artwork in emCAD for machine production runs.
+              - listitem [ref=f17e320]:
+                - generic [ref=f17e321]: —
+                - text: Worked directly with the production floor so designs were feasible before they were signed off.
+              - listitem [ref=f17e322]:
+                - generic [ref=f17e323]: —
+                - text: Held design quality against stitch-level tolerances and delivery deadlines.
+        - listitem [ref=f17e324]:
+          - paragraph [ref=f17e325]: "02"
+          - generic [ref=f17e326]:
+            - heading "Graphic Designer" [level=3] [ref=f17e327]
+            - paragraph [ref=f17e328]: AV Digital Press
+            - list [ref=f17e329]:
+              - listitem [ref=f17e330]:
+                - generic [ref=f17e331]: —
+                - text: Produced press-ready layouts, invitation suites and commercial artwork.
+              - listitem [ref=f17e332]:
+                - generic [ref=f17e333]: —
+                - text: Built artwork in Photoshop and CorelDRAW to print specification, not screen approximation.
+              - listitem [ref=f17e334]:
+                - generic [ref=f17e335]: —
+                - text: Ran several client projects in parallel against fixed press schedules.
+      - heading "Education" [level=3] [ref=f17e337]
+      - list [ref=f17e338]:
+        - listitem [ref=f17e339]:
+          - paragraph [ref=f17e340]: 2020 — 2023
+          - paragraph [ref=f17e341]: Bharathiyar NIFT-TEA College of Knitwear Fashion
+          - paragraph [ref=f17e342]: Fashion Design
+        - listitem [ref=f17e343]:
+          - paragraph [ref=f17e344]: 2017 — 2018
+          - paragraph [ref=f17e345]: KGS Matric Higher Secondary School
+          - paragraph [ref=f17e346]: Higher Secondary (XII)
+      - link "Download full résumé (PDF)" [ref=f17e348] [cursor=pointer]:
+        - /url: /Sowmiya-Ravichandran-Resume.pdf
+    - generic [ref=f17e353]:
+      - generic [ref=f17e354]:
+        - generic [ref=f17e355]:
+          - generic [ref=f17e356]: "04"
+          - heading "Contact" [level=2] [ref=f17e357]
+        - paragraph [ref=f17e358]: Open to freelance commissions and full-time roles. The fastest way to reach me is email.
+      - link "sowmiyaravi.design@gmail.com" [ref=f17e360] [cursor=pointer]:
+        - /url: mailto:sowmiyaravi.design@gmail.com
+      - list [ref=f17e364]:
+        - listitem [ref=f17e365]:
+          - heading "Email" [level=3] [ref=f17e366]
+          - link "sowmiyaravi.design@gmail.com" [ref=f17e367] [cursor=pointer]:
+            - /url: mailto:sowmiyaravi.design@gmail.com
+        - listitem [ref=f17e371]:
+          - heading "Phone" [level=3] [ref=f17e372]
+          - link "+91 90035 23067" [ref=f17e373] [cursor=pointer]:
+            - /url: tel:+919003523067
+        - listitem [ref=f17e376]:
+          - heading "Based in" [level=3] [ref=f17e377]
+          - link "Tirupur, Tamil Nadu, India" [ref=f17e378] [cursor=pointer]:
+            - /url: https://www.google.com/maps/search/?api=1&query=Tirupur%2C+Tamil+Nadu
+      - paragraph [ref=f17e383]: Currently in Tirupur, Tamil Nadu · Available for freelance & full-time
+  - contentinfo [ref=f17e384]:
+    - generic [ref=f17e385]:
+      - generic [ref=f17e386]:
+        - generic [ref=f17e387]:
+          - paragraph [ref=f17e388]: Sowmiya.Ravichandran
+          - paragraph [ref=f17e389]: Graphic & Interface Designer
+        - navigation "Footer" [ref=f17e390]:
+          - link "Work" [ref=f17e391] [cursor=pointer]:
+            - /url: "#work"
+          - link "About" [ref=f17e392] [cursor=pointer]:
+            - /url: "#about"
+          - link "Experience" [ref=f17e393] [cursor=pointer]:
+            - /url: "#experience"
+          - link "Contact" [ref=f17e394] [cursor=pointer]:
+            - /url: "#contact"
+          - link "Email" [ref=f17e395] [cursor=pointer]:
+            - /url: mailto:sowmiyaravi.design@gmail.com
+      - generic [ref=f17e399]:
+        - paragraph [ref=f17e400]: © 2026 Sowmiya Ravichandran
+        - paragraph [ref=f17e401]: Tirupur, Tamil Nadu, India
+  - alert [ref=f17e402]

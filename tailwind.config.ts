@@ -1,82 +1,51 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
+
+/**
+ * Colours are declared as `R G B` triplets in globals.css so a single token can
+ * serve both themes and still accept Tailwind opacity modifiers (`text-ink/60`).
+ */
+const token = (name: string) => `rgb(var(--${name}) / <alpha-value>)`;
 
 const config: Config = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ['./components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './data/**/*.{ts,tsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
-      screens: {
-        'xs': '475px',
-      },
       colors: {
-        primary: {
-          50: '#f5f3ff',
-          100: '#ede9fe',
-          200: '#ddd6fe',
-          300: '#c4b5fd',
-          400: '#a78bfa',
-          500: '#8b5cf6',
-          600: '#7c3aed',
-          700: '#6d28d9',
-          800: '#5b21b6',
-          900: '#4c1d95',
-        },
-        accent: {
-          50: '#fdf4ff',
-          100: '#fae8ff',
-          200: '#f5d0fe',
-          300: '#f0abfc',
-          400: '#e879f9',
-          500: '#d946ef',
-          600: '#c026d3',
-          700: '#a21caf',
-          800: '#86198f',
-          900: '#701a75',
-        },
-        dark: {
-          50: '#f9fafb',
-          100: '#f3f4f6',
-          200: '#e5e7eb',
-          300: '#d1d5db',
-          400: '#9ca3af',
-          500: '#6b7280',
-          600: '#4b5563',
-          700: '#374151',
-          800: '#1f2937',
-          900: '#111827',
-          950: '#030712',
-        },
+        canvas: token('canvas'),
+        surface: token('surface'),
+        ink: token('ink'),
+        'ink-muted': token('ink-muted'),
+        rule: token('rule'),
+        accent: token('accent'),
+        'accent-ink': token('accent-ink'),
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        // These MUST reference the CSS variables injected by next/font. Naming the
+        // family directly ('Archivo') silently falls back to system-ui, because
+        // next/font registers a hashed, scoped family name instead.
+        display: ['var(--font-display)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
+        serif: ['var(--font-serif)', 'Georgia', 'serif'],
       },
-      animation: {
-        'fade-in': 'fadeIn 0.6s ease-in-out',
-        'slide-up': 'slideUp 0.6s ease-out',
-        'slide-down': 'slideDown 0.6s ease-out',
-        'scale-in': 'scaleIn 0.4s ease-out',
+      fontSize: {
+        // Fluid editorial scale. Clamp removes the need for per-breakpoint size soup.
+        label: ['0.6875rem', { lineHeight: '1.4', letterSpacing: '0.14em' }],
+        small: ['0.875rem', { lineHeight: '1.6' }],
+        body: ['1rem', { lineHeight: '1.65' }],
+        'body-lg': ['clamp(1.0625rem, 0.95rem + 0.5vw, 1.25rem)', { lineHeight: '1.6' }],
+        title: ['clamp(1.5rem, 1.2rem + 1.4vw, 2.25rem)', { lineHeight: '1.15', letterSpacing: '-0.02em' }],
+        section: ['clamp(2rem, 1.4rem + 3vw, 4rem)', { lineHeight: '1', letterSpacing: '-0.03em' }],
+        // Capped at 7.5rem so the three-line headline plus the intro block still
+        // clear a 900px-tall laptop viewport — the CTA must never sit below the fold.
+        hero: ['clamp(2.5rem, 1rem + 7.5vw, 7.5rem)', { lineHeight: '0.95', letterSpacing: '-0.04em' }],
       },
-      keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        slideUp: {
-          '0%': { transform: 'translateY(20px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
-        },
-        slideDown: {
-          '0%': { transform: 'translateY(-20px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
-        },
-        scaleIn: {
-          '0%': { transform: 'scale(0.9)', opacity: '0' },
-          '100%': { transform: 'scale(1)', opacity: '1' },
-        },
+      maxWidth: {
+        measure: '68ch',
+      },
+      transitionTimingFunction: {
+        editorial: 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
     },
   },

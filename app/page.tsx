@@ -1,21 +1,23 @@
-import Navigation from '@/components/Navigation';
-import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Skills from '@/components/Skills';
-import Experience from '@/components/Experience';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
+import { Hero } from '@/components/sections/Hero';
+import { Work } from '@/components/sections/Work';
+import { About } from '@/components/sections/About';
+import { Experience } from '@/components/sections/Experience';
+import { Contact } from '@/components/sections/Contact';
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <Navigation />
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Contact />
+    <>
+      <Header />
+      <main id="main">
+        <Hero />
+        <Work />
+        <About />
+        <Experience />
+        <Contact />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

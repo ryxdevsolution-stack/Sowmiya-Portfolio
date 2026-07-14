@@ -1,0 +1,2 @@
+[      88ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3111/_next/static/chunks/849e2d0434190edd.js:0
+[      91ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3111/_next/static/chunks/9b25aebc35b11758.js:0
