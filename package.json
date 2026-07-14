@@ -23,7 +23,7 @@
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.4.17",
     "framer-motion": "^12.23.24",
-    "next": "^16.0.3",
+    "next": "^16.2.10",
     "postcss": "^8.4.33",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
@@ -34,6 +34,6 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.6",
     "eslint": "^9.39.1",
-    "eslint-config-next": "^16.0.3"
+    "eslint-config-next": "^16.2.10"
   }
 }
