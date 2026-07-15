@@ -1,0 +1,20 @@
+[   18360ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[   18406ms] [LOG] [HMR] connected @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[   18611ms] [WARNING] Image with src "/work/srr-health-mix.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  488323ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  488370ms] [LOG] [Fast Refresh] done in 147ms @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  488664ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  489936ms] [LOG] [Fast Refresh] done in 1318ms @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  653757ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  653924ms] [LOG] [Fast Refresh] done in 238ms @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  682523ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  682700ms] [LOG] [Fast Refresh] done in 220ms @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  723688ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  724484ms] [LOG] [Fast Refresh] done in 713ms @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  762600ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  762757ms] [LOG] [Fast Refresh] done in 258ms @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  798383ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  798491ms] [LOG] [Fast Refresh] done in 208ms @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  824041ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  824152ms] [LOG] [Fast Refresh] done in 184ms @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477

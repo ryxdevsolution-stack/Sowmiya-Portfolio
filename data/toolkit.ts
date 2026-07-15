@@ -15,19 +15,23 @@ export interface SpecRow {
 export const specSheet: SpecRow[] = [
   {
     label: 'Design',
-    values: ['Adobe Photoshop', 'CorelDRAW', 'Figma', 'emCAD'],
+    values: ['Adobe Photoshop', 'CorelDRAW', 'emCAD', 'Figma'],
+  },
+  {
+    label: 'Business',
+    values: ['Client handling & briefs', 'Lead generation', 'Order & delivery', 'Quoting & negotiation'],
   },
   {
     label: 'Craft',
     values: ['Brand identity', 'Print production', 'Embroidery digitising', 'Layout & typography'],
   },
   {
-    label: 'Build',
-    values: ['HTML & CSS', 'JavaScript', 'React', 'Tailwind CSS'],
+    label: 'Expanding',
+    values: ['Video editing', 'Motion graphics', 'UI/UX design'],
   },
   {
     label: 'Languages',
-    values: ['Tamil — native', 'English — fluent'],
+    values: ['Tamil — native', 'English — professional'],
   },
 ];
 
@@ -39,19 +43,23 @@ export interface Capability {
 
 export const capabilities: Capability[] = [
   {
-    title: 'Packaging',
-    note: 'Labels and cartons for retail, built around mandatory FSSAI marks and nutrition panels.',
+    title: 'Retail Branding',
+    note: 'Retail labels and cartons — regulatory marks and nutrition panels resolved into shelf-ready design.',
   },
   {
-    title: 'Print',
-    note: 'Flyers, invitations and commercial artwork prepared to press specification.',
+    title: 'Corporate Communications',
+    note: 'Flyers, invitation suites and commercial artwork, prepared to full press and production specification.',
   },
   {
-    title: 'Identity',
-    note: 'Marks, business cards and the collateral a small business actually hands out.',
+    title: 'Corporate Identity',
+    note: 'Logos, business cards and brand collateral, built as a consistent and reusable visual system.',
   },
   {
-    title: 'Digital',
-    note: 'Social creative and interface layouts, built on a real grid and reusable components.',
+    title: 'Digital Design',
+    note: 'Social campaigns and interface layouts, built on a disciplined grid and reusable components.',
+  },
+  {
+    title: 'Business Development',
+    note: 'Scoping briefs, quoting projects and managing delivery — converting enquiries into long-term clients.',
   },
 ];

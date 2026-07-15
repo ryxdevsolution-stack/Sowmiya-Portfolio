@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { profile, primaryEmail } from '@/data/site';
+import { profile } from '@/data/site';
 import { DURATION, EASE_EDITORIAL, STAGGER } from '@/lib/motion';
 import { Icon } from '@/components/ui/Icon';
 
@@ -147,7 +147,15 @@ export function Hero() {
               <Icon name="arrow-down" className="h-4 w-4" />
             </a>
             <a
-              href={primaryEmail}
+              href={profile.resumeUrl}
+              download
+              className="inline-flex h-12 items-center gap-2 border border-rule bg-surface/60 px-6 text-small font-medium backdrop-blur-sm transition-colors duration-300 ease-editorial hover:border-ink"
+            >
+              Download résumé
+              <Icon name="arrow-down" className="h-4 w-4" />
+            </a>
+            <a
+              href="#contact"
               className="inline-flex h-12 items-center gap-2 border border-rule bg-surface/60 px-6 text-small font-medium backdrop-blur-sm transition-colors duration-300 ease-editorial hover:border-ink"
             >
               Get in touch

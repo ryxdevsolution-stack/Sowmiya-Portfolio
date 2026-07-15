@@ -49,7 +49,11 @@
       "Bash(node -e \"console.log\\(require\\('playwright-core/package.json'\\).version\\)\")",
       "Bash(sed -i \"s|^import { profile, primaryEmail } from '@/data/site';|import Image from 'next/image';\\\\nimport { profile, primaryEmail } from '@/data/site';|\" components/sections/Hero.tsx)",
       "Bash(awk '{print $4, $6}')",
-      "Bash(sed -i \"s|import { themeInitScript } from '@/components/layout/ThemeToggle';|import { themeInitScript } from '@/components/layout/ThemeToggle';\\\\nimport { MotionProvider } from '@/components/layout/MotionProvider';|\" app/layout.tsx)"
+      "Bash(sed -i \"s|import { themeInitScript } from '@/components/layout/ThemeToggle';|import { themeInitScript } from '@/components/layout/ThemeToggle';\\\\nimport { MotionProvider } from '@/components/layout/MotionProvider';|\" app/layout.tsx)",
+      "Bash(PORT=3005 npm run dev)",
+      "Bash(break)",
+      "Bash(npm uninstall *)",
+      "Bash(pkill -f \"next dev\")"
     ],
     "deny": [],
     "ask": []

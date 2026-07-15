@@ -9,7 +9,7 @@
 export interface Role {
   title: string;
   organisation: string;
-  /** Kept to three lines maximum — a portfolio is not a CV dump. */
+  /** Kept to around three or four lines — a portfolio is not a CV dump. */
   points: string[];
 }
 
@@ -21,34 +21,48 @@ export interface Education {
 
 export const roles: Role[] = [
   {
+    title: 'Freelance Designer — UI, Video & Business Development',
+    organisation: 'Independent / Freelance',
+    points: [
+      'Business development: generate and convert my own client leads — first contact, scoping the brief, quoting and negotiating each project end to end.',
+      'Own each client relationship through the full cycle: requirements, revisions and on-time delivery across web and mobile.',
+      'Design UI layouts in Figma and cut short promotional and social videos, holding one design language across formats.',
+    ],
+  },
+  {
     title: 'Digital Embroidery Designer',
     organisation: 'Juleee Embrotech Pvt Ltd (SS Creation)',
     points: [
-      'Digitised embroidery artwork in emCAD for machine production runs.',
-      'Worked directly with the production floor so designs were feasible before they were signed off.',
-      'Held design quality against stitch-level tolerances and delivery deadlines.',
+      'Managed custom client orders from brief to production-ready output, balancing creative intent against cost and deadline.',
+      'Advised clients on what was achievable within embroidery constraints, developing each design to their brief.',
+      'Digitised in emCAD and tuned stitch density and direction so artwork translated cleanly to fabric without rework.',
     ],
   },
   {
     title: 'Graphic Designer',
     organisation: 'AV Digital Press',
     points: [
-      'Produced press-ready layouts, invitation suites and commercial artwork.',
-      'Built artwork in Photoshop and CorelDRAW to print specification, not screen approximation.',
-      'Ran several client projects in parallel against fixed press schedules.',
+      'Handled client jobs from brief to final artwork, producing to specification and turning revisions around under tight deadlines.',
+      'Prepared press-ready files — colour, bleed, margins, alignment — to cut reprints and reduce production cost.',
+      'Designed layouts, invitations and print collateral in Photoshop and CorelDRAW, and coordinated concurrent studio projects.',
     ],
   },
 ];
 
 export const education: Education[] = [
   {
-    institution: 'Bharathiyar NIFT-TEA College of Knitwear Fashion',
-    qualification: 'Fashion Design',
-    period: '2020 — 2023',
+    institution: 'NIFT-TEA College of Knitwear Fashion',
+    qualification: 'B.Sc. Apparel & Fashion Design',
+    period: '2019 — 2022',
   },
   {
     institution: 'KGS Matric Higher Secondary School',
     qualification: 'Higher Secondary (XII)',
     period: '2017 — 2018',
+  },
+  {
+    institution: 'Jaivabai Municipal Girls Higher Secondary School',
+    qualification: 'SSLC (X)',
+    period: '2015 — 2016',
   },
 ];

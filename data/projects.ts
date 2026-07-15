@@ -80,6 +80,12 @@ export interface Project {
   category: ProjectCategory;
   client: string;
   year: string;
+  /**
+   * The aesthetic in two or three words — shown as its own line in the lightbox
+   * info panel, so a visitor can read the design direction at a glance without
+   * parsing the full description.
+   */
+  style: string;
   /** One line, shown beneath the title. */
   summary: string;
   /** Two or three sentences, shown in the lightbox. */
@@ -99,6 +105,7 @@ export const projects: Project[] = [
     category: 'Packaging',
     client: 'Sri Vengateswara Garments · German Cliff',
     year: '2025',
+    style: 'Systematised retail · Bold colourway',
     summary: 'One die-line, three SKUs, two brands.',
     description:
       'Retail sleeve packaging for churidar and ankle-length leggings, built as a system rather than as three separate jobs. A single die-line carries the front panel, the spine and the spec panel; the brand lockup, the colourway and the product photography are the only variables. That means a new SKU or a new label ships without new tooling — which is the difference between a design and a design system.',
@@ -132,6 +139,7 @@ export const projects: Project[] = [
     category: 'Packaging',
     client: 'SRR — Sree Ram Traders',
     year: '2025',
+    style: 'Natural-foods retail · Compliance-led',
     summary: 'FSSAI-compliant food packaging for a natural foods range.',
     description:
       'Retail packaging for a natural foods brand, covering the Health Mix carton and the Red Banana Powder label. Food packaging is a constrained brief: the FSSAI mark, the veg symbol, the nutrition panel and the licence number are all mandatory and all fixed in size, so the design has to earn its shelf appeal in the space that is left over.',
@@ -159,6 +167,7 @@ export const projects: Project[] = [
     category: 'Identity',
     client: 'Sri Vengateswara Garments',
     year: '2025',
+    style: 'Trade identity · Functional card',
     summary: 'A garment-trade identity and card, carrying a scannable location.',
     description:
       'Brand mark and business card for a garment manufacturer in Tiruppur. The card does real work rather than decorative work: a scannable location QR, the GST number and both partners’ direct lines, because in the garment trade the card is often the only contact record a buyer keeps.',
@@ -179,6 +188,7 @@ export const projects: Project[] = [
     category: 'Identity',
     client: 'Humming Bird',
     year: '2025',
+    style: 'Gradient mark · Oversized wordmark',
     summary: 'A gradient bird mark set against its own oversized wordmark.',
     description:
       'Identity and card for Humming Bird. The mark is a single gradient stroke that reads as a bird in flight, and the card sets it against an outlined wordmark blown up to bleed off both edges — so the logo is legible at contact-detail scale while the brand still fills the card.',
@@ -199,6 +209,7 @@ export const projects: Project[] = [
     category: 'Print',
     client: 'Majestic Public School, Tirupur',
     year: '2025',
+    style: 'Institutional print · Loud-to-fine hierarchy',
     summary: 'An admissions campaign flyer built to be read across a room.',
     description:
       'A print flyer announcing the 2026–27 admissions intake. The brief carried a lot of mandatory copy — two campus addresses, the full group listing, the feature set — so the layout leads with a single loud message and lets the detail resolve as the reader gets closer.',
@@ -219,6 +230,7 @@ export const projects: Project[] = [
     category: 'Campaign',
     client: 'Loan Nanban, Namakkal',
     year: '2025',
+    style: 'Tamil typographic · High-contrast campaign',
     summary: 'A Tamil-language campaign for a loan brokerage.',
     description:
       'Social creative for a loan consultancy working across Namakkal, Tiruchengode, Salem and Erode. The campaign is written and set entirely in Tamil, which is a typographic problem before it is a design one: Tamil glyphs carry tall ascenders and stacked vowel marks, so the headline leading has to be opened up well beyond what a Latin layout would need before the type stops colliding with itself.',
@@ -252,6 +264,7 @@ export const projects: Project[] = [
     category: 'Campaign',
     client: 'Property Nanban, Vazhapadi',
     year: '2025',
+    style: 'Aspirational real-estate · Compliance-led',
     summary: 'Plot-sale creative for a DTCP-approved development.',
     description:
       'A run of social creative selling residential plots in a gated development. Each piece has to carry the same compliance furniture — DTCP and RERA approval, road widths, the price per square foot — so the layout treats that block as a fixed element and varies only the headline, the imagery and the location, which keeps a fast-moving campaign consistent.',
@@ -285,6 +298,7 @@ export const projects: Project[] = [
     category: 'Digital',
     client: 'SparkWee',
     year: '2025',
+    style: 'Diagonal split · Agency-bold digital',
     summary: 'Social creative for a digital marketing agency.',
     description:
       'A social post for a digital marketing agency, built on a diagonal split that lets the photography and the message each hold a full half of the frame. The angle is carried through from the logo lockup, so the composition and the mark share one geometry.',

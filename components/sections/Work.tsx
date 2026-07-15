@@ -1,89 +1,104 @@
 'use client';
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { projects, type Project } from '@/data/projects';
-import { DURATION, EASE_EDITORIAL, STAGGER } from '@/lib/motion';
+import { useId, useState } from 'react';
+import Image from 'next/image';
+import { categoryTint, projects, type Project } from '@/data/projects';
+import { cn } from '@/lib/cn';
 import { SectionHeader } from '@/components/ui/SectionHeader';
-import { ProjectCard } from '@/components/ui/ProjectCard';
 import { Lightbox } from '@/components/ui/Lightbox';
+import { ScrollStack, ScrollStackItem } from '@/components/ui/ScrollStack';
+import { Icon } from '@/components/ui/Icon';
 
 /**
- * The lead piece runs full width; everything else flows in a masonry.
+ * The work, as a scroll-driven stack.
  *
- * ─── WHY MASONRY AND NOT A GRID ────────────────────────────────────────────
- * A CSS grid places items into a rectangular lattice. When a tall card (a 3:4
- * flyer) and a short one (a 16:9 business card) share a row, the short one
- * leaves dead space beneath it — a visible hole. `grid-flow-dense` doesn't help:
- * it backfills whole empty CELLS, not partial vertical gaps.
+ * Each piece is a card that pins near the top of the viewport as the page scrolls
+ * and lets the next card rise to stack on top of it — the set overlaps one card at
+ * a time, under scroll control (see ScrollStack). Every card carries its own
+ * detail on the left and the artwork on the right, and selecting it — by click or
+ * by Enter/Space on the stretched link over its title — opens the lightbox, where
+ * the full gallery lives.
  *
- * This work has genuinely mixed proportions — packaging sleeves, A4 flyers,
- * landscape business cards, square social posts — so a lattice will always be
- * ragged. Multi-column flow ("masonry") stacks each card directly beneath the
- * previous one in its column, so gaps cannot form. It is what every serious
- * portfolio platform uses, for exactly this reason.
- *
- * There is no category filter, deliberately: across eight pieces a filter would
- * return one or two results per click, costing the visitor a decision and
- * returning nothing. Each card's pill already names the discipline.
- * ───────────────────────────────────────────────────────────────────────────
+ * A reduced-motion visitor gets the same cards as a plain vertical list with no
+ * scroll-jacking (ScrollStack handles that fallback).
  */
+function WorkCard({ project, onOpen }: { project: Project; onOpen: (p: Project) => void }) {
+  const tint = categoryTint[project.category];
+  const titleId = useId();
+
+  return (
+    <article className="grid md:h-[24rem] md:grid-cols-[1fr_1.15fr]">
+      {/* ── Detail, left ─────────────────────────────────────────────────── */}
+      <div className="order-2 flex flex-col justify-center gap-4 p-8 md:order-1 md:p-10">
+        <span
+          className={cn(
+            'inline-flex w-fit items-center rounded-full px-3 py-1 font-mono text-label uppercase',
+            tint.pill
+          )}
+        >
+          {project.category}
+        </span>
+
+        <h3 id={titleId} className="font-display text-title font-semibold tracking-tight">
+          {/* Stretched link: the whole card is clickable, the accessible name stays the title. */}
+          <button
+            type="button"
+            onClick={() => onOpen(project)}
+            aria-label={`${project.title} — ${project.category}. Open full size`}
+            className="text-left outline-none after:absolute after:inset-0 after:content-['']"
+          >
+            {project.title}
+          </button>
+        </h3>
+
+        <p className="font-display text-body-lg font-medium text-ink">{project.style}</p>
+        <p className="text-small text-ink-muted">{project.client}</p>
+
+        <span
+          aria-hidden="true"
+          className="mt-2 inline-flex items-center gap-1.5 text-label font-medium uppercase text-ink"
+        >
+          View full size
+          <Icon name="arrow-up-right" className="h-3.5 w-3.5" />
+        </span>
+      </div>
+
+      {/* ── Artwork, right ───────────────────────────────────────────────── */}
+      <div className="relative order-1 h-56 w-full overflow-hidden md:order-2 md:h-full">
+        <Image
+          src={project.cover.src}
+          alt={project.cover.alt}
+          fill
+          sizes="(max-width: 768px) 100vw, 55vw"
+          quality={88}
+          className="object-cover object-top"
+        />
+      </div>
+    </article>
+  );
+}
+
 export function Work() {
   const [active, setActive] = useState<Project | null>(null);
 
-  const [featured, ...rest] = projects;
-
-  // No `useReducedMotion()` branching here — it returns false on the server and
-  // true on a reduce-motion client, so branching `initial` on it made the SSR
-  // markup disagree with the client's and React refused to patch it up.
-  // <MotionProvider> suppresses motion globally instead. See MotionProvider.tsx.
-  const reveal = (index: number) => ({
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: '0px 0px -10% 0px' } as const,
-    transition: {
-      duration: DURATION.base,
-      ease: EASE_EDITORIAL,
-      // Capped: by the eighth card a per-index delay leaves the visitor waiting
-      // on an animation instead of reading.
-      delay: Math.min(index, 3) * STAGGER,
-    },
-  });
-
   return (
-    <section id="work" className="shell scroll-mt-24 py-24 md:py-36">
-      <SectionHeader
-        index="01"
-        title="Selected Work"
-        standfirst="Packaging, campaigns, print and identity — made for manufacturers, schools, brokers and retail brands around Tiruppur, Namakkal and Salem. Select any piece to see it full size."
-      />
-
-      {/* The lead piece, full width and inverted to dark, so the eye lands here first. */}
-      <motion.div className="mb-5" {...reveal(0)}>
-        <ProjectCard project={featured} onOpen={setActive} />
-      </motion.div>
-
-      {/*
-        Masonry. `break-inside-avoid` stops a card being sliced across a column
-        boundary; the margin-bottom on each child supplies the vertical gutter,
-        because `gap` only controls the space BETWEEN columns here, not within them.
-
-        No `priority` on any image: the page opens with a full-viewport, purely
-        typographic hero, so no artwork is above the fold. Preloading would make
-        the browser race to fetch images nobody can see yet, competing with the
-        fonts and text that actually are the LCP.
-      */}
-      <div className="columns-1 gap-5 sm:columns-2 lg:columns-3">
-        {rest.map((project, index) => (
-          <motion.div
-            key={project.slug}
-            className="mb-5 break-inside-avoid"
-            {...reveal(index + 1)}
-          >
-            <ProjectCard project={project} onOpen={setActive} />
-          </motion.div>
-        ))}
+    <section id="work" className="scroll-mt-24 py-24 md:py-36">
+      <div className="shell">
+        <SectionHeader
+          index="01"
+          title="Selected Work"
+          standfirst="Packaging, campaigns, print and identity — made for manufacturers, schools, brokers and retail brands around Tiruppur, Namakkal and Salem. Scroll through the stack; click any piece to open its full gallery and details."
+        />
       </div>
+
+      {/* Whole-page scroll drives the stacking. Cards are held to a readable column. */}
+      <ScrollStack useWindowScroll className="shell" itemDistance={80} itemStackDistance={26}>
+        {projects.map((project) => (
+          <ScrollStackItem key={project.slug} itemClassName="mx-auto max-w-4xl">
+            <WorkCard project={project} onOpen={setActive} />
+          </ScrollStackItem>
+        ))}
+      </ScrollStack>
 
       <Lightbox project={active} onClose={() => setActive(null)} />
     </section>

@@ -1,0 +1,103 @@
+[    1132ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[    1277ms] [LOG] [HMR] connected @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  131317ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  132627ms] [LOG] [Fast Refresh] done in 1338ms @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  151365ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  151648ms] [ERROR] ./components/sections/Work.tsx:125:16
+Expected '</', got 'jsx text'
+  123 |           ))}
+  124 |         </CardSwap>
+> 125 |       </Reveal>
+      |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 126 |
+      | ^
+> 127 |       <Lightbox project={active} onClose={() => setActive(null)} />
+      | ^^^^^^
+  128 |     </section>
+  129 |   );
+  130 | }
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/sections/Work.tsx
+    ./app/page.tsx @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:3318
+[  151872ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  152861ms] [ERROR] ./components/sections/Work.tsx:125:16
+Expected '</', got 'jsx text'
+  123 |           ))}
+  124 |         </CardSwap>
+> 125 |       </Reveal>
+      |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 126 |
+      | ^
+> 127 |       <Lightbox project={active} onClose={() => setActive(null)} />
+      | ^^^^^^
+  128 |     </section>
+  129 |   );
+  130 | }
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/sections/Work.tsx
+    ./app/page.tsx @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:3318
+[  152987ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3005/?_rsc=q3mOO9BClNZHexY7#work:0
+[  153014ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3005/?_rsc=q3mOO9BClNZHexY7#work:0
+[  153034ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3005/?_rsc=q3mOO9BClNZHexY7#work:0
+[  153065ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3005/?_rsc=q3mOO9BClNZHexY7#work:0
+[  153096ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3005/?_rsc=q3mOO9BClNZHexY7#work:0
+[  153100ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  153118ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://localhost:3005/?_rsc=q3mOO9BClNZHexY7#work:0
+[  153137ms] [ERROR] ./components/sections/Work.tsx:125:16
+Expected '</', got 'jsx text'
+  123 |           ))}
+  124 |         </CardSwap>
+> 125 |       </Reveal>
+      |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 126 |
+      | ^
+> 127 |       <Lightbox project={active} onClose={() => setActive(null)} />
+      | ^^^^^^
+  128 |     </section>
+  129 |   );
+  130 | }
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/sections/Work.tsx
+    ./app/page.tsx @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:3318
+[  168259ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  168627ms] [ERROR] ./components/sections/Work.tsx:125:16
+Expected '</', got 'jsx text'
+  123 |           ))}
+  124 |         </CardSwap>
+> 125 |       </Reveal>
+      |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 126 |
+      | ^
+> 127 |       <Lightbox project={active} onClose={() => setActive(null)} />
+      | ^^^^^^
+  128 |     </section>
+  129 |   );
+  130 | }
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/sections/Work.tsx
+    ./app/page.tsx @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:3318
+[  168699ms] [WARNING] [HMR] Invalid message: {"isTrusted":true}
+TypeError: Cannot convert undefined or null to object
+    at Object.keys (<anonymous>)
+    at extractModulesFromTurbopackMessage (http://localhost:3005/_next/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:13754:39)
+    at TurbopackHmr.onTurbopackMessage (http://localhost:3005/_next/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:13701:32)
+    at processMessage (http://localhost:3005/_next/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:14059:30)
+    at WebSocket.handleMessage (http://localhost:3005/_next/static/chunks/node_modules_next_dist_client_0r5nbpw._.js:13458:52) @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  168730ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477
+[  168730ms] [LOG] [Fast Refresh] done in 0ms @ http://localhost:3005/_next/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477

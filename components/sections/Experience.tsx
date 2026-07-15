@@ -65,8 +65,7 @@ export function Experience() {
         <Reveal className="mt-12">
           <a
             href={profile.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            download
             className="link-underline inline-flex items-center gap-2 text-small font-medium"
           >
             Download full résumé (PDF)

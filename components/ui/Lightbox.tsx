@@ -3,8 +3,9 @@
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import Image from 'next/image';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import type { Project } from '@/data/projects';
+import { categoryTint, type Project } from '@/data/projects';
 import { DURATION, DURATION_EXIT, EASE_EDITORIAL } from '@/lib/motion';
+import { cn } from '@/lib/cn';
 import { Icon } from './Icon';
 
 interface LightboxProps {
@@ -25,12 +26,19 @@ const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1
  */
 export function Lightbox({ project, onClose }: LightboxProps) {
   const [frame, setFrame] = useState(0);
+  /**
+   * Gallery-first: the viewer opens showing the artwork big, with the written
+   * detail hidden behind this toggle. Someone opening a piece wants to SEE it
+   * first; the client/role/style copy is a second, opt-in layer.
+   */
+  const [showInfo, setShowInfo] = useState(false);
   /** Which project the `frame` index currently belongs to — see the reset below. */
   const [lastSlug, setLastSlug] = useState<string | null>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   /** The element that was focused before the modal opened, so we can restore it. */
   const triggerRef = useRef<HTMLElement | null>(null);
   const titleId = useId();
+  const infoId = useId();
   const reduced = useReducedMotion();
 
   const open = project !== null;
@@ -56,6 +64,8 @@ export function Lightbox({ project, onClose }: LightboxProps) {
   if (project && project.slug !== lastSlug) {
     setLastSlug(project.slug);
     setFrame(0);
+    // Every project opens gallery-first, regardless of how the last one was left.
+    setShowInfo(false);
   }
 
   // Remember what opened us, and hand focus back to it on close.
@@ -160,118 +170,169 @@ export function Lightbox({ project, onClose }: LightboxProps) {
             aria-modal="true"
             aria-labelledby={titleId}
             tabIndex={-1}
-            className="shell grid max-h-dvh w-full grid-rows-[auto_1fr] gap-6 overflow-y-auto py-6 outline-none lg:grid-cols-[1fr_22rem] lg:grid-rows-1 lg:items-center lg:gap-12 lg:py-12"
+            className="shell flex max-h-dvh w-full flex-col gap-5 overflow-y-auto py-6 outline-none lg:py-10"
             initial={reduced ? undefined : { opacity: 0, y: 12 }}
             animate={reduced ? undefined : { opacity: 1, y: 0 }}
             exit={reduced ? undefined : { opacity: 0, y: 12 }}
             transition={{ duration: reduced ? 0 : DURATION.base, ease: EASE_EDITORIAL }}
           >
-            {/* ── Image stage ─────────────────────────────────────────────── */}
-            <div className="relative lg:order-1">
-              {/*
-                The artwork is shown whole. No fixed aspect box, no object-cover:
-                the image is given its intrinsic ratio and capped by height, so a
-                tall packaging label and a wide business card each fit the viewport
-                without a single pixel of the design being cropped away. This is the
-                view someone opens specifically to inspect the work closely.
-              */}
-              <div className="flex items-center justify-center">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={frames[frame]?.src}
-                    initial={reduced ? undefined : { opacity: 0 }}
-                    animate={reduced ? undefined : { opacity: 1 }}
-                    exit={reduced ? undefined : { opacity: 0 }}
-                    transition={{ duration: reduced ? 0 : DURATION.fast }}
-                    className="w-full"
-                  >
-                    <Image
-                      src={frames[frame]?.src ?? ''}
-                      alt={frames[frame]?.alt ?? ''}
-                      width={frames[frame]?.width ?? 1}
-                      height={frames[frame]?.height ?? 1}
-                      sizes="(max-width: 1024px) 100vw, 60vw"
-                      quality={92}
-                      priority
-                      className="mx-auto h-auto max-h-[60dvh] w-auto max-w-full object-contain lg:max-h-[78dvh]"
-                    />
-                  </motion.div>
-                </AnimatePresence>
+            {/* ── Controls bar ────────────────────────────────────────────────
+                Always visible. The category leads as a prominent, discipline-
+                coloured pill; the title sits beneath it; the Info toggle and Close
+                sit opposite. Gallery-first means the written detail is opt-in. */}
+            <div className="flex items-start justify-between gap-4">
+              <div className="min-w-0">
+                <span
+                  className={cn(
+                    'inline-flex items-center rounded-full px-3 py-1 font-mono text-label uppercase',
+                    categoryTint[project.category].pill
+                  )}
+                >
+                  {project.category}
+                </span>
+                <h2 id={titleId} className="mt-3 font-display text-title font-semibold">
+                  {project.title}
+                </h2>
               </div>
 
-              {frameCount > 1 && (
-                <div className="mt-4 flex items-center gap-3">
-                  <button
-                    type="button"
-                    onClick={() => goTo(frame - 1)}
-                    aria-label="Previous image"
-                    className="flex h-11 w-11 items-center justify-center border border-rule text-ink transition-colors duration-200 hover:border-ink hover:bg-ink hover:text-canvas"
-                  >
-                    <Icon name="arrow-left" />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => goTo(frame + 1)}
-                    aria-label="Next image"
-                    className="flex h-11 w-11 items-center justify-center border border-rule text-ink transition-colors duration-200 hover:border-ink hover:bg-ink hover:text-canvas"
-                  >
-                    <Icon name="arrow-right" />
-                  </button>
-                  <p className="label ml-2" aria-hidden="true">
-                    {String(frame + 1).padStart(2, '0')} / {String(frameCount).padStart(2, '0')}
-                  </p>
-
-                  {/*
-                    Arrow keys swap the artwork silently — the <img> alt changes but
-                    nothing re-announces it, so a screen-reader user hears only a
-                    counter tick and is told nothing about what they are now looking
-                    at. This region carries the new frame's description instead.
-                  */}
-                  <p className="sr-only" aria-live="polite">
-                    {`Image ${frame + 1} of ${frameCount}. ${frames[frame]?.alt ?? ''}`}
-                  </p>
-                </div>
-              )}
-            </div>
-
-            {/* ── Project meta ────────────────────────────────────────────── */}
-            <div className="lg:order-2">
-              <div className="flex items-start justify-between gap-4">
-                <p className="label text-accent">{project.category}</p>
+              <div className="flex shrink-0 items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setShowInfo((v) => !v)}
+                  aria-expanded={showInfo}
+                  aria-controls={infoId}
+                  className={cn(
+                    'inline-flex h-11 items-center gap-2 border px-4 text-small font-medium transition-colors duration-200',
+                    showInfo
+                      ? 'border-ink bg-ink text-canvas'
+                      : 'border-rule text-ink hover:border-ink'
+                  )}
+                >
+                  {showInfo ? 'Hide info' : 'Info'}
+                </button>
                 <button
                   type="button"
                   onClick={onClose}
                   aria-label="Close project"
-                  className="-mt-2 flex h-11 w-11 shrink-0 items-center justify-center text-ink transition-colors duration-200 hover:text-accent"
+                  className="flex h-11 w-11 shrink-0 items-center justify-center text-ink transition-colors duration-200 hover:text-accent"
                 >
                   <Icon name="close" className="h-6 w-6" />
                 </button>
               </div>
+            </div>
 
-              <h2 id={titleId} className="mt-3 font-display text-title font-semibold">
-                {project.title}
-              </h2>
+            {/* ── Body: image stage, with the info panel beside it when toggled ── */}
+            <div className="flex flex-1 flex-col gap-6 lg:flex-row lg:items-center lg:gap-12">
+              <div className="min-w-0 lg:flex-1">
+                {/*
+                  The artwork is shown whole. No fixed aspect box, no object-cover:
+                  the image is given its intrinsic ratio and capped by height, so a
+                  tall packaging label and a wide business card each fit without a
+                  single pixel of the design being cropped away.
+                */}
+                <div className="flex items-center justify-center">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={frames[frame]?.src}
+                      initial={reduced ? undefined : { opacity: 0 }}
+                      animate={reduced ? undefined : { opacity: 1 }}
+                      exit={reduced ? undefined : { opacity: 0 }}
+                      transition={{ duration: reduced ? 0 : DURATION.fast }}
+                      className="w-full"
+                    >
+                      <Image
+                        src={frames[frame]?.src ?? ''}
+                        alt={frames[frame]?.alt ?? ''}
+                        width={frames[frame]?.width ?? 1}
+                        height={frames[frame]?.height ?? 1}
+                        sizes="(max-width: 1024px) 100vw, 60vw"
+                        quality={92}
+                        priority
+                        className="mx-auto h-auto max-h-[62dvh] w-auto max-w-full object-contain lg:max-h-[80dvh]"
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
 
-              <p className="mt-5 text-body text-ink-muted">{project.description}</p>
+                {frameCount > 1 && (
+                  <div className="mt-4 flex items-center gap-3">
+                    <button
+                      type="button"
+                      onClick={() => goTo(frame - 1)}
+                      aria-label="Previous image"
+                      className="flex h-11 w-11 items-center justify-center border border-rule text-ink transition-colors duration-200 hover:border-ink hover:bg-ink hover:text-canvas"
+                    >
+                      <Icon name="arrow-left" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => goTo(frame + 1)}
+                      aria-label="Next image"
+                      className="flex h-11 w-11 items-center justify-center border border-rule text-ink transition-colors duration-200 hover:border-ink hover:bg-ink hover:text-canvas"
+                    >
+                      <Icon name="arrow-right" />
+                    </button>
+                    <p className="label ml-2" aria-hidden="true">
+                      {String(frame + 1).padStart(2, '0')} / {String(frameCount).padStart(2, '0')}
+                    </p>
 
-              <dl className="mt-8 space-y-4 border-t border-rule pt-6">
-                <div className="flex justify-between gap-6">
-                  <dt className="label">Client</dt>
-                  <dd className="text-right text-small">{project.client}</dd>
-                </div>
-                <div className="flex justify-between gap-6">
-                  <dt className="label">Role</dt>
-                  <dd className="text-right text-small">{project.role}</dd>
-                </div>
-                <div className="flex justify-between gap-6">
-                  <dt className="label">Year</dt>
-                  <dd className="text-right font-mono text-small">{project.year}</dd>
-                </div>
-                <div className="flex justify-between gap-6">
-                  <dt className="label">Tools</dt>
-                  <dd className="text-right text-small">{project.tools.join(', ')}</dd>
-                </div>
-              </dl>
+                    {/*
+                      Arrow keys swap the artwork silently — the <img> alt changes but
+                      nothing re-announces it, so a screen-reader user hears only a
+                      counter tick. This region carries the new frame's description.
+                    */}
+                    <p className="sr-only" aria-live="polite">
+                      {`Image ${frame + 1} of ${frameCount}. ${frames[frame]?.alt ?? ''}`}
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              {/* ── Info panel: revealed only when the toggle is on ──────────── */}
+              <AnimatePresence>
+                {showInfo && (
+                  <motion.div
+                    id={infoId}
+                    key="info"
+                    initial={reduced ? undefined : { opacity: 0, x: 16 }}
+                    animate={reduced ? undefined : { opacity: 1, x: 0 }}
+                    exit={reduced ? undefined : { opacity: 0, x: 16 }}
+                    transition={{ duration: reduced ? 0 : DURATION.base, ease: EASE_EDITORIAL }}
+                    className="w-full shrink-0 lg:w-[22rem]"
+                  >
+                    {/* Style leads the panel — the aesthetic in a phrase, accented. */}
+                    <p className="label text-accent">Style</p>
+                    <p className="mt-2 font-display text-body-lg font-medium text-ink">
+                      {project.style}
+                    </p>
+
+                    <p className="mt-6 text-body text-ink-muted">{project.description}</p>
+
+                    <dl className="mt-8 space-y-4 border-t border-rule pt-6">
+                      <div className="flex justify-between gap-6">
+                        <dt className="label">Discipline</dt>
+                        <dd className="text-right text-small">{project.category}</dd>
+                      </div>
+                      <div className="flex justify-between gap-6">
+                        <dt className="label">Client</dt>
+                        <dd className="text-right text-small">{project.client}</dd>
+                      </div>
+                      <div className="flex justify-between gap-6">
+                        <dt className="label">Role</dt>
+                        <dd className="text-right text-small">{project.role}</dd>
+                      </div>
+                      <div className="flex justify-between gap-6">
+                        <dt className="label">Year</dt>
+                        <dd className="text-right font-mono text-small">{project.year}</dd>
+                      </div>
+                      <div className="flex justify-between gap-6">
+                        <dt className="label">Tools</dt>
+                        <dd className="text-right text-small">{project.tools.join(', ')}</dd>
+                      </div>
+                    </dl>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </motion.div>
         </motion.div>

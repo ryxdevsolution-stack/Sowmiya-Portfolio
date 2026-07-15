@@ -26,7 +26,8 @@ export function About() {
             I design for three surfaces that punish mistakes differently — the
             <span className="text-accent"> press</span>, the
             <span className="text-accent"> shelf</span>, and the
-            <span className="text-accent"> screen</span>.
+            <span className="text-accent"> screen</span> — and I win and keep the
+            <span className="text-accent"> clients</span> who commission all three.
           </p>
         </Reveal>
 
@@ -49,6 +50,12 @@ export function About() {
               shelf appeal in whatever space the mandatory marks leave behind. The same
               discipline shows up in interface work as consistent spacing, honest hierarchy,
               and components that hold together under real content.
+            </p>
+            <p>
+              I also work the client side of the desk — scoping briefs, quoting jobs and
+              coordinating orders through to delivery. Design that never gets sold stays a
+              draft, so I treat winning the brief and keeping the client as part of the craft,
+              not an afterthought to it.
             </p>
           </div>
         </Reveal>
@@ -105,13 +112,20 @@ export function About() {
         </Reveal>
 
         {/* ── 4. The index. Structured, scannable, closes the section. ────── */}
-        <RevealList as="ul" className="mt-20 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Five services now (Business Development joins the four disciplines), so
+            the large-screen track count matches the item count for a single clean row. */}
+        <RevealList as="ul" className="mt-20 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-5">
           {capabilities.map((capability, index) => (
             <RevealItem as="li" key={capability.title} className="border-t border-rule pt-5">
               <span className="label text-accent" aria-hidden="true">
                 {String(index + 1).padStart(2, '0')}
               </span>
-              <h3 className="mt-3 font-display text-title font-semibold">{capability.title}</h3>
+              {/* Smaller than text-title: five columns are narrow and the corporate
+                  names ("Corporate Communications") are long, so a title-scale here
+                  overflows the column and collides with its neighbour. */}
+              <h3 className="mt-3 font-display text-[clamp(1.1rem,0.9rem+0.7vw,1.5rem)] font-semibold leading-tight tracking-tight">
+                {capability.title}
+              </h3>
               <p className="mt-2 text-small text-ink-muted">{capability.note}</p>
             </RevealItem>
           ))}
