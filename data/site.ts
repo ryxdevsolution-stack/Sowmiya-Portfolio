@@ -84,6 +84,19 @@ export const seo = {
   title: `${profile.firstName} ${profile.lastName} — ${profile.role}`,
   description:
     'Portfolio of Sowmiya Ravichandran, a graphic designer and prompt engineer working across brand identity, print, packaging and AI-assisted design with Claude and Figma. Based in Tamil Nadu, India.',
-  /** Update once the site has a real domain — used for canonical + OG URLs. */
-  url: 'https://sowmiya-portfolio.vercel.app',
+  /**
+   * The LIVE deployment, used for canonical + OG URLs and for the résumé's
+   * Portfolio link.
+   *
+   * Note the `-psi` suffix — it is not a typo and must not be "tidied" away.
+   * Vercel appends a suffix when the bare project name is already taken, and it
+   * is here: `sowmiya-portfolio.vercel.app` (no suffix) belongs to somebody else
+   * and serves an unrelated placeholder page. Pointing canonical, Open Graph and
+   * the résumé at that address hands a stranger's site to search engines and to
+   * anyone who clicks through from the CV.
+   *
+   * Update this only when a real custom domain exists, and verify what the
+   * address actually serves before changing it.
+   */
+  url: 'https://sowmiya-portfolio-psi.vercel.app',
 } as const;
