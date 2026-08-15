@@ -26,8 +26,8 @@ export function About() {
             I design for three surfaces that punish mistakes differently — the
             <span className="text-accent"> press</span>, the
             <span className="text-accent"> shelf</span>, and the
-            <span className="text-accent"> screen</span> — and I win and keep the
-            <span className="text-accent"> clients</span> who commission all three.
+            <span className="text-accent"> screen</span> — and I resolve the design
+            <span className="text-accent"> completely</span> before it reaches any of them.
           </p>
         </Reveal>
 
@@ -52,10 +52,11 @@ export function About() {
               and components that hold together under real content.
             </p>
             <p>
-              I also work the client side of the desk — scoping briefs, quoting jobs and
-              coordinating orders through to delivery. Design that never gets sold stays a
-              draft, so I treat winning the brief and keeping the client as part of the craft,
-              not an afterthought to it.
+              More recently I have been working with AI as part of that process — prompt
+              engineering with Claude and Figma to move from a brief to directed concepts,
+              then iterating until the detail holds up. A vague prompt returns a generic
+              answer, so I write them the way I write a spec: state the constraints, name the
+              intent, and be precise about what the design has to survive.
             </p>
           </div>
         </Reveal>
@@ -112,7 +113,7 @@ export function About() {
         </Reveal>
 
         {/* ── 4. The index. Structured, scannable, closes the section. ────── */}
-        {/* Five services now (Business Development joins the four disciplines), so
+        {/* Five services (Prompt Engineering joins the four design disciplines), so
             the large-screen track count matches the item count for a single clean row. */}
         <RevealList as="ul" className="mt-20 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-5">
           {capabilities.map((capability, index) => (

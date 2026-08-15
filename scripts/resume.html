@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sowmiya Ravichandran — Résumé</title>
+    <!--
+      SOURCE OF TRUTH FOR public/Sowmiya-Ravichandran-Resume.pdf
+
+      The PDF is generated from this file — run `npm run resume`. Edit the copy
+      here, never the PDF.
+
+      ─── WHY THIS FILE EXISTS ────────────────────────────────────────────────
+      The original PDF was printed from an HTML page by headless Chrome (its
+      Producer string is "Skia/PDF", Creator "HeadlessChrome"), but that HTML was
+      never committed — so the résumé was effectively read-only, and every later
+      edit would have meant hand-patching a binary or rebuilding from scratch.
+      This is that page reconstructed from the PDF's own geometry, so the source
+      lives with the site it belongs to.
+
+      ─── ON THE MEASUREMENTS ─────────────────────────────────────────────────
+      Everything is in POINTS, not pixels, and matches the original exactly:
+      A4 595.28×841.89pt, 42.5pt margins, a 166pt left column, a 36.5pt gutter
+      and a 307.5pt right column. Those numbers were read out of the original
+      PDF's text bounding boxes rather than eyeballed, so a regenerated file
+      lands on the same grid as the one already sent to employers.
+
+      Georgia and Arial are the fonts the original embedded. They are used here
+      as local system fonts on purpose — no webfont, so the build needs no
+      network and cannot silently substitute a different face.
+    -->
+    <style>
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      :root {
+        --accent: #bf5a3c;
+        --ink: #1a1a1a;
+        --ink-body: #333333;
+        --ink-soft: #444444;
+        --ink-muted: #555555;
+        --ink-label: #6b6b6b;
+        --rule: #d9d9d9;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 595.28pt;
+        height: 841.89pt;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        color: var(--ink-body);
+        /* Chrome's print path anti-aliases better with this left on. */
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page {
+        display: grid;
+        /* 166pt / 36.5pt gutter / 307.5pt — measured off the original. */
+        grid-template-columns: 166pt 307.5pt;
+        column-gap: 36.5pt;
+        padding: 26pt 42.5pt 30pt;
+      }
+
+      /* ── Masthead ──────────────────────────────────────────────────────── */
+      .name {
+        font-family: Georgia, 'Times New Roman', serif;
+        font-weight: 700;
+        font-size: 22.5pt;
+        line-height: 1.06;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+      }
+
+      .role {
+        margin-top: 7pt;
+        font-size: 7.6pt;
+        font-weight: 700;
+        line-height: 1.5;
+        letter-spacing: 0.19em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      /* ── Contact ───────────────────────────────────────────────────────── */
+      .contact {
+        margin-top: 12pt;
+        list-style: none;
+      }
+
+      .contact li {
+        display: flex;
+        gap: 7pt;
+        margin-bottom: 6.5pt;
+        font-size: 8.2pt;
+        line-height: 1.45;
+        color: var(--ink-body);
+      }
+
+      .contact .mark {
+        flex: 0 0 10pt;
+        color: var(--accent);
+        font-size: 8pt;
+        line-height: 1.45;
+      }
+
+      .contact a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* ── Section headings ──────────────────────────────────────────────── */
+      h2 {
+        font-family: Georgia, 'Times New Roman', serif;
+        font-weight: 700;
+        font-size: 15pt;
+        line-height: 1.1;
+        color: var(--ink);
+        border-bottom: 0.75pt solid var(--rule);
+        padding-bottom: 5pt;
+      }
+
+      .left h2 {
+        margin-top: 14pt;
+      }
+
+      /* The right column starts lower than the masthead, as in the original. */
+      .right {
+        padding-top: 23pt;
+      }
+
+      .right h2:not(:first-child) {
+        margin-top: 22pt;
+      }
+
+      .right h2 + * {
+        margin-top: 11pt;
+      }
+
+      .left h2 + * {
+        margin-top: 8pt;
+      }
+
+      /* ── Left column body ──────────────────────────────────────────────── */
+      .about {
+        font-size: 8.2pt;
+        line-height: 1.45;
+        color: var(--ink-body);
+      }
+
+      .skill-group {
+        margin-top: 7.5pt;
+      }
+
+      .skill-group:first-of-type {
+        margin-top: 0;
+      }
+
+      .skill-label {
+        font-size: 7.15pt;
+        font-weight: 400;
+        letter-spacing: 0.19em;
+        text-transform: uppercase;
+        color: var(--ink-label);
+        margin-bottom: 2.5pt;
+      }
+
+      .skill-value {
+        font-size: 8.2pt;
+        line-height: 1.5;
+        color: var(--ink-body);
+      }
+
+      .cert {
+        margin-top: 9pt;
+      }
+
+      .cert:first-of-type {
+        margin-top: 0;
+      }
+
+      .cert-title {
+        font-size: 8.6pt;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.35;
+      }
+
+      .cert-org {
+        font-size: 8.2pt;
+        color: var(--ink-muted);
+        line-height: 1.4;
+      }
+
+      .cert-date {
+        margin-top: 1.5pt;
+        font-size: 7.15pt;
+        letter-spacing: 0.19em;
+        text-transform: uppercase;
+        color: var(--ink-label);
+      }
+
+      /* ── Right column ──────────────────────────────────────────────────── */
+      .job {
+        margin-top: 14pt;
+      }
+
+      .job:first-of-type {
+        margin-top: 0;
+      }
+
+      .job-title {
+        font-family: Georgia, 'Times New Roman', serif;
+        font-weight: 700;
+        font-size: 13.5pt;
+        line-height: 1.16;
+        color: var(--ink);
+      }
+
+      .job-org {
+        margin-top: 2pt;
+        font-size: 8.4pt;
+        font-weight: 700;
+        color: var(--accent);
+      }
+
+      .points {
+        margin-top: 6pt;
+        list-style: none;
+      }
+
+      .points li {
+        position: relative;
+        padding-left: 12pt;
+        margin-bottom: 5.5pt;
+        font-size: 8.2pt;
+        line-height: 1.5;
+        color: var(--ink-soft);
+      }
+
+      .points li::before {
+        content: '';
+        position: absolute;
+        left: 2pt;
+        top: 4.4pt;
+        width: 3pt;
+        height: 3pt;
+        border-radius: 50%;
+        background: var(--accent);
+      }
+
+      /* ── Education ─────────────────────────────────────────────────────── */
+      .edu {
+        margin-top: 11pt;
+      }
+
+      .edu:first-of-type {
+        margin-top: 0;
+      }
+
+      .edu-period {
+        font-size: 7.4pt;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: var(--accent);
+        margin-bottom: 2pt;
+      }
+
+      .edu-school {
+        font-size: 9.4pt;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.3;
+      }
+
+      .edu-detail {
+        font-size: 8.2pt;
+        color: var(--ink-muted);
+        line-height: 1.4;
+      }
+
+      /* ── Languages ─────────────────────────────────────────────────────── */
+      .lang {
+        margin-top: 7pt;
+        font-size: 9pt;
+        color: var(--ink-soft);
+      }
+
+      .lang:first-of-type {
+        margin-top: 0;
+      }
+
+      .lang b {
+        color: var(--ink);
+        margin-right: 4pt;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- ══ LEFT COLUMN ══════════════════════════════════════════════════ -->
+      <div class="left">
+        <h1 class="name">Sowmiya<br />Ravichandran</h1>
+        <p class="role">Design &amp; Prompt Engineering</p>
+
+        <ul class="contact">
+          <li>
+            <span class="mark">&#9679;</span>
+            <span>GK Modern House Street,<br />Vavipalayam, Tirupur &ndash; 641666</span>
+          </li>
+          <li>
+            <span class="mark">&#9742;</span>
+            <span>+91 90035 23067</span>
+          </li>
+          <li>
+            <span class="mark">&#9993;</span>
+            <span>sowmiyaravi.design@gmail.com</span>
+          </li>
+          <li>
+            <span class="mark">&#8599;</span>
+            <span><a href="https://sowmiya-portfolio.vercel.app">Portfolio</a></span>
+          </li>
+        </ul>
+
+        <h2>about</h2>
+        <p class="about">
+          Resourceful and passionate designer with proven success in digital embroidery and
+          graphic design. Skilled at translating creative concepts into high-value,
+          production-ready visuals &mdash; pairing a sharp eye for detail with a collaborative,
+          problem-solving approach across print and commercial work. Alongside design,
+          experienced in prompt engineering with Claude and Figma, directing briefs into
+          concepts and production-ready artwork &mdash; and currently expanding into video
+          editing and UI/UX design to deliver across both print and digital.
+        </p>
+
+        <h2>skills</h2>
+        <div>
+          <div class="skill-group">
+            <div class="skill-label">Design Software</div>
+            <div class="skill-value">Photoshop, CorelDRAW, emCAD (embroidery), UI/UX basics</div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">AI &amp; Prompting</div>
+            <div class="skill-value">
+              Prompt engineering, Claude, Figma AI, brief-to-concept iteration
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Familiar With</div>
+            <div class="skill-value">Video editing, motion graphics, UI/UX design (Figma)</div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Coordination</div>
+            <div class="skill-value">
+              Production &amp; team coordination, deadline &amp; priority management,
+              cross-project collaboration
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Strengths</div>
+            <div class="skill-value">
+              Teamwork, adaptability, creativity, knowledge sharing
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-label">Productivity</div>
+            <div class="skill-value">Microsoft Excel, MS Office Suite</div>
+          </div>
+        </div>
+
+        <h2>certifications</h2>
+        <div>
+          <div class="cert">
+            <div class="cert-title">DTP, CorelDRAW &amp; Photoshop</div>
+            <div class="cert-org">CCI Computer Education, Tirupur</div>
+            <div class="cert-date">September 2019</div>
+          </div>
+          <div class="cert">
+            <div class="cert-title">UI/UX Designing</div>
+            <div class="cert-org">Coursera</div>
+            <div class="cert-date">January 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ RIGHT COLUMN ═════════════════════════════════════════════════ -->
+      <div class="right">
+        <h2>work experience</h2>
+        <div>
+          <div class="job">
+            <div class="job-title">Freelance &mdash; Design &amp; Prompt Engineering</div>
+            <div class="job-org">Independent / Freelance</div>
+            <ul class="points">
+              <li>
+                Direct Claude and Figma through structured, iterative prompts &mdash; moving
+                from brief to concept, revision, and production-ready artwork.
+              </li>
+              <li>
+                Own each project through the full cycle: requirements, updates, revisions, and
+                on-time delivery across web and mobile projects.
+              </li>
+              <li>
+                Design clean UI layouts in Figma and edit short promotional and social-media
+                videos, applying design principles consistently across formats.
+              </li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-title">Digital Embroidery Designer</div>
+            <div class="job-org">Juleee Embrotech Pvt Ltd (SS Creation)</div>
+            <ul class="points">
+              <li>
+                Managed custom client orders from brief to production-ready output, balancing
+                creative intent with cost, constraints, and delivery deadlines.
+              </li>
+              <li>
+                Advised clients on what was achievable within embroidery constraints,
+                developing each design to their brief and requirements.
+              </li>
+              <li>
+                Coordinated with production teams throughout the run, troubleshooting
+                on-machine issues and adjusting files to keep output on spec.
+              </li>
+              <li>
+                Digitized designs in emCAD and tuned stitch density and direction so artwork
+                translated cleanly to fabric without rework.
+              </li>
+            </ul>
+          </div>
+
+          <div class="job">
+            <div class="job-title">Graphic Designer</div>
+            <div class="job-org">AV Digital Press</div>
+            <ul class="points">
+              <li>
+                Handled client jobs from brief to final artwork, producing to specification and
+                turning revisions around quickly under tight deadlines.
+              </li>
+              <li>
+                Coordinated concurrent projects with the studio team, keeping delivery
+                consistent and on schedule.
+              </li>
+              <li>
+                Prepared press-ready files &mdash; colour, bleed, margins, alignment &mdash; to
+                cut reprints and reduce production cost.
+              </li>
+              <li>
+                Designed layouts, invitations, and print collateral in Photoshop &amp; CorelDRAW
+                from brief to final output.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <h2>education</h2>
+        <div>
+          <div class="edu">
+            <div class="edu-period">2019 &ndash; 2022</div>
+            <div class="edu-school">NIFT-TEA College of Knitwear Fashion</div>
+            <div class="edu-detail">B.Sc. Apparel &amp; Fashion Designing</div>
+          </div>
+          <div class="edu">
+            <div class="edu-period">2017 &ndash; 2018</div>
+            <div class="edu-school">KGS Matric Higher Secondary School</div>
+            <div class="edu-detail">XII Standard &middot; 70.5%</div>
+          </div>
+          <div class="edu">
+            <div class="edu-period">2015 &ndash; 2016</div>
+            <div class="edu-school">Jaivabai Municipal Girls Higher Secondary School</div>
+            <div class="edu-detail">X Standard &middot; 75.2%</div>
+          </div>
+        </div>
+
+        <h2>languages</h2>
+        <div>
+          <div class="lang"><b>Tamil</b>Native / Fluent</div>
+          <div class="lang"><b>English</b>Professional working proficiency</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

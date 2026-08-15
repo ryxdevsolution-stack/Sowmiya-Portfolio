@@ -21,11 +21,11 @@ export interface Education {
 
 export const roles: Role[] = [
   {
-    title: 'Freelance Designer — UI, Video & Business Development',
+    title: 'Freelance Designer — UI, Video & Prompt Engineering',
     organisation: 'Independent / Freelance',
     points: [
-      'Business development: generate and convert my own client leads — first contact, scoping the brief, quoting and negotiating each project end to end.',
-      'Own each client relationship through the full cycle: requirements, revisions and on-time delivery across web and mobile.',
+      'Prompt engineering: direct Claude and Figma through structured, iterative prompts — from brief to concept, revision and production-ready artwork.',
+      'Own each project through the full cycle: requirements, revisions and on-time delivery across web and mobile.',
       'Design UI layouts in Figma and cut short promotional and social videos, holding one design language across formats.',
     ],
   },

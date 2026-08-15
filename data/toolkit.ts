@@ -18,8 +18,13 @@ export const specSheet: SpecRow[] = [
     values: ['Adobe Photoshop', 'CorelDRAW', 'emCAD', 'Figma'],
   },
   {
-    label: 'Business',
-    values: ['Client handling & briefs', 'Lead generation', 'Order & delivery', 'Quoting & negotiation'],
+    label: 'AI & Prompting',
+    values: [
+      'Prompt engineering',
+      'Claude',
+      'Figma AI',
+      'Brief-to-concept iteration',
+    ],
   },
   {
     label: 'Craft',
@@ -59,7 +64,7 @@ export const capabilities: Capability[] = [
     note: 'Social campaigns and interface layouts, built on a disciplined grid and reusable components.',
   },
   {
-    title: 'Business Development',
-    note: 'Scoping briefs, quoting projects and managing delivery — converting enquiries into long-term clients.',
+    title: 'Prompt Engineering',
+    note: 'Directing Claude and Figma with structured, iterative prompts — brief to concept to production-ready artwork.',
   },
 ];

@@ -90,6 +90,57 @@
     @apply mx-auto w-full max-w-[1440px] px-6 sm:px-8 lg:px-12;
   }
 
+  /*
+   * Accordion gallery primitives (components/ui/AccordionGallery.tsx).
+   *
+   * Only the parts Tailwind cannot express live here: a transform that composes
+   * a centring translate with a custom property, and the breakpoint that cancels
+   * the 3D entirely. Everything else on that component is utilities.
+   */
+  .ag-panel {
+    transform: rotateY(var(--ag-tilt, 0deg));
+    transform-origin: center center;
+  }
+
+  .ag-media {
+    top: 50%;
+    left: 50%;
+    width: var(--ag-media, 420px);
+    height: 100%;
+    /* Centre the oversized media, then slide it for the parallax. */
+    transform: translate(-50%, -50%) translateX(var(--ag-shift, 0px));
+  }
+
+  /*
+   * Below `md` the accordion stacks. Tilt and parallax are cancelled rather than
+   * recomputed for the vertical axis: on a phone the panels are wide and short,
+   * so a rotation reads as a rendering fault and the drift has nowhere to go.
+   * The media simply fills each panel instead.
+   *
+   * ─── WHY THE HEIGHT IS COMPUTED AND NOT `auto` ───────────────────────────
+   * `height: auto` here silently kills the accordion. flex-grow distributes FREE
+   * space, and a content-height container has none — so every panel sat at its
+   * min-height, nothing expanded, and no caption ever appeared. The column needs
+   * an explicit height: one collapsed strip per piece, plus room for the open
+   * one. `--ag-count` is set inline by the component.
+   */
+  @media (max-width: 767px) {
+    .ag-root {
+      height: calc((var(--ag-count, 5) - 1) * 3rem + 20rem) !important;
+      perspective: none;
+    }
+    .ag-panel {
+      min-height: 3rem;
+      transform: none;
+    }
+    .ag-media {
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      transform: none;
+    }
+  }
+
   /* Underline that draws in from the left on hover — restrained link affordance. */
   .link-underline {
     @apply relative inline-block;
@@ -136,27 +187,6 @@
     opacity: 1 !important;
     transform: none !important;
   }
-}
-
-/*
- * Lenis smooth-scroll (used by the Selected Work stack). When Lenis is active it
- * adds `.lenis` to <html>; these are its required base styles. The critical one
- * is disabling native `scroll-behavior` while Lenis drives the scroll — otherwise
- * the CSS `scroll-smooth` on <html> and Lenis fight for the same wheel input,
- * which is what produces the stutter.
- */
-html.lenis,
-html.lenis body {
-  height: auto;
-}
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-.lenis.lenis-stopped {
-  overflow: hidden;
 }
 
 ::-webkit-scrollbar {
